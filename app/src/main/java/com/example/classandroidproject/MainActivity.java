@@ -61,21 +61,22 @@ public class MainActivity extends AppCompatActivity {
         {
             public void onClick(View view)
             {
-                //convert the string to int values
-                num1 = Integer.parseInt(value1.getText().toString());
-                num2 = Integer.parseInt(value2.getText().toString());
+                try
+                {
+                    //convert the string to int values
+                    num1 = Integer.parseInt(value1.getText().toString());
+                    num2 = Integer.parseInt(value2.getText().toString());
 
-                //display sum
-                Sum(num1, num2);
+                    //display sum
+                    Sum(num1, num2);
 
-                if(value1 == null || value2 == null)
+                    //display results
+                    results.setText("RESULTS : " + sum);
+                }
+                catch (Exception e)
                 {
                     //display an error
                     results.setText("Invalid!");
-                }
-                else
-                {
-                    results.setText("RESULTS : " + sum);
                 }
             }
         });
@@ -87,32 +88,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                //convert the string to int values
-                num1 = Integer.parseInt(value1.getText().toString());
-                num2 = Integer.parseInt(value2.getText().toString());
+                try
+                {
+                    //convert the string to int values
+                    num1 = Integer.parseInt(value1.getText().toString());
+                    num2 = Integer.parseInt(value2.getText().toString());
 
-                //display sub
-                Sub(num1, num2);
+                    //display sub
+                    Sub(num1, num2);
 
-                if(value1 == null || value2 == null)
+                    //results
+                    results.setText("RESULTS : " + sub);
+                }
+                catch (Exception e)
                 {
                     //display an error
                     results.setText("Invalid!");
                 }
-                else
-                {
-                    results.setText("RESULTS : " + sub);
-                }
             }
         });
-    }
-
-    public void NullValues()
-    {
-        if(value1 == null || value2 == null)
-        {
-            //display an error
-            results.setText("Invalid!");
-        }
     }
 }
